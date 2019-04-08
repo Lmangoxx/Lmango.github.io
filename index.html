@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
 <title>Lmango - 个人博客</title>
@@ -12,7 +12,7 @@
 <meta property="og:title" content="Lmango - 个人博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Lmango - 个人博客">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lmango - 个人博客">
@@ -35,10 +35,6 @@
 
     
     
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
-
     
     
     
@@ -123,7 +119,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -139,37 +135,46 @@
     <div class="card">
     
     <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/06/git-commit/">Git Commit规范指南</a>
+            
+        </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-05T04:53:10.580Z">2019-04-05</time>
+                <i class="far fa-calendar-alt" style="padding-right: 5px;"></i>
+                <time class="level-item has-text-grey" datetime="2019-04-06T08:02:27.000Z">2019-04-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 121 words)
+                    3 分钟 读完 (大约 451 个字)
                 </span>
                 
                 
             </div>
         </div>
         
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/05/hello-world/">Hello World</a>
-            
-        </h1>
         <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="1、优点"><a href="#1、优点" class="headerlink" title="1、优点"></a>1、优点</h2><ul>
+<li>可读性好，清晰，不必深入看代码即可了解当前commit的作用</li>
+<li>为 Code Reviewing做准备</li>
+<li>方便跟踪工程历史</li>
+<li>让其他的开发者在运行 git blame 的时候想跪谢</li>
+<li>提高项目的整体质量，提高个人工程素质</li>
+</ul>
+<h2 id="2、Commit-message-格式"><a href="#2、Commit-message-格式" class="headerlink" title="2、Commit message 格式"></a>2、Commit message 格式</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+<p>其中header部分是必须的，body跟footer可以忽略</p>
+<h2 id="3、Header"><a href="#3、Header" class="headerlink" title="3、Header"></a>3、Header</h2><p>header部分只有一行，包括三个字段：<a href>type(必需)</a>、<a href>scope(可选)</a>、<a href>subject(必需)</a></p>
+<h2 id="3-1、Header-type的类别："><a href="#3-1、Header-type的类别：" class="headerlink" title="3.1、Header type的类别："></a>3.1、Header type的类别：</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">feat    : 添加新特性、新功能</span><br><span class="line">fix     : 修复bug</span><br><span class="line">docs    : 仅仅修改了文档</span><br><span class="line">style   : 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑，不影响代码运行的变动</span><br><span class="line">refact  : 代码重构，既不是新功能增加，也不是修复bug的改动</span><br><span class="line">perf    : 优化相关，比如性能测试、体验等</span><br><span class="line">test    : 增加测试用例，包括单元测试、集成测试等</span><br><span class="line">chore   : 改变构建流程、或者增加依赖库、工具等</span><br><span class="line">tips    : 增加一些提示信息，例如错误提示等</span><br><span class="line">del     : 删除</span><br></pre></td></tr></table></figure>
+<p>如果type类型为 <a href>feat</a> 和 <a href>fix</a> 时，则该commit将肯定出现在change log之中</p>
+<h2 id="3-2、Header-scope"><a href="#3-2、Header-scope" class="headerlink" title="3.2、Header scope"></a>3.2、Header scope</h2><p>scope用于说明commit 影响的范围，比如数据层、控制层、视图层等等，根据项目不同而不同<br>如果你的修改影响了不止一个 <a href>scope</a>，可以使用 <a href>*</a> 代替</p>
+<h2 id="3-3、Header-subject"><a href="#3-3、Header-subject" class="headerlink" title="3.3、Header subject"></a>3.3、Header subject</h2><p>subject是commit的简短描述，不超过50个字符</p>
+<h2 id="4、如何通过commit关闭issue"><a href="#4、如何通过commit关闭issue" class="headerlink" title="4、如何通过commit关闭issue"></a>4、如何通过commit关闭issue</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">close #1024</span><br><span class="line">closes #1024</span><br><span class="line">closed #1024</span><br><span class="line">fix #1024</span><br><span class="line">fixes #1024</span><br><span class="line">fixed #1024</span><br><span class="line">resolve #1024</span><br><span class="line">resolves #1024</span><br><span class="line">resolved #1024</span><br></pre></td></tr></table></figure>
+<p>完整写法：<a href>git commit -m ‘fix($test):修改测试环境下部分bug closes #1024’</a></p>
+<p><a href="https://www.jianshu.com/p/201bd81e7dc9?utm_source=oschina-app" target="_blank" rel="noopener">参考文档</a></p>
 
         </div>
         
@@ -200,22 +205,22 @@
             <div class="level-item has-text-centered">
                 <div>
                     
-                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.jpeg" alt="Lmango">
                     
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        Lmango
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端小学生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>北京 · BeiJing, China</span>
                     </p>
                     
                 </div>
@@ -225,7 +230,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Post
+                        文章
                     </p>
                     <p class="title has-text-weight-normal">
                         1
@@ -235,7 +240,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        分类
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -245,47 +250,29 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        1
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="http://github.com/ppoffice" target="_blank">
-                Follow</a>
+            <a class="level-item button is-link is-rounded" href="https://github.com/Lmangoxx" target="_blank">
+                关注我</a>
         </div>
         
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/ppoffice">
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/Lmangoxx">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
-                
-                <i class="fab fa-dribbble"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/atom.xml">
                 
                 <i class="fas fa-rss"></i>
                 
@@ -304,7 +291,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            链接
         </h3>
         <ul class="menu-list">
         
@@ -342,7 +329,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                分类
             </h3>
             <ul class="menu-list">
             
@@ -352,6 +339,15 @@
 </div>
     
         
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/git/" style="font-size: 10px;">git</a>
+    </div>
+</div>
+
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
@@ -360,21 +356,21 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            最新文章
         </h3>
         
         <article class="media">
             
-            <a href="/2019/04/05/hello-world/" class="media-left">
+            <a href="/2019/04/06/git-commit/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git Commit规范指南">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T04:53:10.580Z">2019-04-05</time></div>
-                    <a href="/2019/04/05/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-06T08:02:27.000Z">2019-04-06</time></div>
+                    <a href="/2019/04/06/git-commit/" class="has-link-black-ter is-size-6">Git Commit规范指南</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -390,14 +386,14 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            归档
         </h3>
         <ul class="menu-list">
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">April 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -414,9 +410,16 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
             </div>
         </div>
@@ -438,21 +441,21 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            最新文章
         </h3>
         
         <article class="media">
             
-            <a href="/2019/04/05/hello-world/" class="media-left">
+            <a href="/2019/04/06/git-commit/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git Commit规范指南">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-05T04:53:10.580Z">2019-04-05</time></div>
-                    <a href="/2019/04/05/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-06T08:02:27.000Z">2019-04-06</time></div>
+                    <a href="/2019/04/06/git-commit/" class="has-link-black-ter is-size-6">Git Commit规范指南</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -468,14 +471,14 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            归档
         </h3>
         <ul class="menu-list">
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
-                    <span class="level-item">April 2019</span>
+                    <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -492,9 +495,16 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
             </div>
         </div>
@@ -559,15 +569,11 @@
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
+<script>moment.locale("zh-CN");</script>
 
 
     
     
-    
-    <script src="/js/animation.js"></script>
-    
-
     
     
     
@@ -625,7 +631,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -659,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -671,11 +677,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
             CONTENT_URL: '/content.json',
         };
