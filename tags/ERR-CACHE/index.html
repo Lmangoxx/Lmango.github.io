@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Lmango - 个人博客</title>
+<title>标签: ERR_CACHE - Lmango - 个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="lmango">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lmango - 个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/ERR-CACHE/index.html">
 <meta property="og:site_name" content="Lmango - 个人博客">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
@@ -94,7 +94,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
@@ -131,7 +131,17 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">ERR_CACHE</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
     <div class="card">
     
     <div class="card-image">
@@ -178,70 +188,6 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="noopener">Link prefetching FAQ</a></li>
 <li><a href="https://medium.com/@soorajchandran/speeding-up-your-website-using-prefetching-techniques-8077058b7418" target="_blank" rel="noopener">Speeding up your website using Prefetching techniques</a></li>
 </ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/04/06/git-commit/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1543253539-58c7d1c00c8a?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="Git Commit规范指南">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/06/git-commit/">Git Commit规范指南</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <i class="far fa-calendar-alt" style="padding-right: 5px;"></i>
-                <time class="level-item has-text-grey" datetime="2019-04-06T08:02:27.000Z">2019-04-06</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 451 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <h2 id="1、优点"><a href="#1、优点" class="headerlink" title="1、优点"></a>1、优点</h2><ul>
-<li>可读性好，清晰，不必深入看代码即可了解当前commit的作用</li>
-<li>为 Code Reviewing做准备</li>
-<li>方便跟踪工程历史</li>
-<li>让其他的开发者在运行 git blame 的时候想跪谢</li>
-<li>提高项目的整体质量，提高个人工程素质</li>
-</ul>
-<h2 id="2、Commit-message-格式"><a href="#2、Commit-message-格式" class="headerlink" title="2、Commit message 格式"></a>2、Commit message 格式</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
-<p>其中header部分是必须的，body跟footer可以忽略</p>
-<h2 id="3、Header"><a href="#3、Header" class="headerlink" title="3、Header"></a>3、Header</h2><p>header部分只有一行，包括三个字段：<a href>type(必需)</a>、<a href>scope(可选)</a>、<a href>subject(必需)</a></p>
-<h2 id="3-1、Header-type的类别："><a href="#3-1、Header-type的类别：" class="headerlink" title="3.1、Header type的类别："></a>3.1、Header type的类别：</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">feat    : 添加新特性、新功能</span><br><span class="line">fix     : 修复bug</span><br><span class="line">docs    : 仅仅修改了文档</span><br><span class="line">style   : 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑，不影响代码运行的变动</span><br><span class="line">refact  : 代码重构，既不是新功能增加，也不是修复bug的改动</span><br><span class="line">perf    : 优化相关，比如性能测试、体验等</span><br><span class="line">test    : 增加测试用例，包括单元测试、集成测试等</span><br><span class="line">chore   : 改变构建流程、或者增加依赖库、工具等</span><br><span class="line">tips    : 增加一些提示信息，例如错误提示等</span><br><span class="line">del     : 删除</span><br></pre></td></tr></table></figure>
-<p>如果type类型为 <a href>feat</a> 和 <a href>fix</a> 时，则该commit将肯定出现在change log之中</p>
-<h2 id="3-2、Header-scope"><a href="#3-2、Header-scope" class="headerlink" title="3.2、Header scope"></a>3.2、Header scope</h2><p>scope用于说明commit 影响的范围，比如数据层、控制层、视图层等等，根据项目不同而不同<br>如果你的修改影响了不止一个 <a href>scope</a>，可以使用 <a href>*</a> 代替</p>
-<h2 id="3-3、Header-subject"><a href="#3-3、Header-subject" class="headerlink" title="3.3、Header subject"></a>3.3、Header subject</h2><p>subject是commit的简短描述，不超过50个字符</p>
-<h2 id="4、如何通过commit关闭issue"><a href="#4、如何通过commit关闭issue" class="headerlink" title="4、如何通过commit关闭issue"></a>4、如何通过commit关闭issue</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">close #1024</span><br><span class="line">closes #1024</span><br><span class="line">closed #1024</span><br><span class="line">fix #1024</span><br><span class="line">fixes #1024</span><br><span class="line">fixed #1024</span><br><span class="line">resolve #1024</span><br><span class="line">resolves #1024</span><br><span class="line">resolved #1024</span><br></pre></td></tr></table></figure>
-<p>完整写法：<a href>git commit -m ‘fix($test):修改测试环境下部分bug closes #1024’</a></p>
-<p><a href="https://www.jianshu.com/p/201bd81e7dc9?utm_source=oschina-app" target="_blank" rel="noopener">参考文档</a></p>
 
         </div>
         
