@@ -135,6 +135,60 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1526737511523-ba685f246e8c?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="JavaScript上传TXT文件并预览">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/13/JavaScript上传TXT文件并预览/">JavaScript上传TXT文件并预览</a>
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <i class="far fa-calendar-alt" style="padding-right: 5px;"></i>
+                <time class="level-item has-text-grey" datetime="2019-05-13T04:12:59.000Z">2019-05-13</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 266 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <h3 id="js实现txt文件预览-支持各种编码格式"><a href="#js实现txt文件预览-支持各种编码格式" class="headerlink" title="js实现txt文件预览(支持各种编码格式)"></a>js实现txt文件预览(支持各种编码格式)</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># txtPreview.js</span></span><br><span class="line"><span class="hljs-comment"># 引入jschardet获取文件编码</span></span><br><span class="line">import jschardet from <span class="hljs-string">'jschardet'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">##</span></span><br><span class="line"> <span class="hljs-comment"># 获取文件的encoding码</span></span><br><span class="line"> <span class="hljs-comment"># @param &#123;Object File&#125; file input上传的txt文件</span></span><br><span class="line"> <span class="hljs-comment"># @return &#123;String&#125; encoding 返回文件的编码格式</span></span><br><span class="line"> <span class="hljs-comment">#</span></span><br><span class="line"><span class="hljs-keyword">function</span> checkEncoding (file) &#123;</span><br><span class="line">    <span class="hljs-built_in">return</span> new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        <span class="hljs-built_in">let</span> reader = new FileReader()</span><br><span class="line">        reader.readAsDataURL(file)  <span class="hljs-comment"># 获取txt文件的base64码</span></span><br><span class="line">        reader.onload = <span class="hljs-keyword">function</span> (e) &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> base64Str = reader.result</span><br><span class="line">            <span class="hljs-built_in">let</span> str = atob(base64Str.split(<span class="hljs-string">';base64,'</span>)[1])</span><br><span class="line">            <span class="hljs-built_in">let</span> encoding = jschardet.detect(str)  <span class="hljs-comment"># 通过jschardet获取txt文件对应的编码格式</span></span><br><span class="line">            encoding = encoding.encoding</span><br><span class="line">            <span class="hljs-keyword">if</span> (encoding === <span class="hljs-string">'window-1252'</span>) &#123;</span><br><span class="line">                encoding = <span class="hljs-string">'ANSI'</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(encoding)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">##</span></span><br><span class="line"> <span class="hljs-comment"># 返回file内容</span></span><br><span class="line"> <span class="hljs-comment"># @param &#123;Object File&#125; file input上传的txt文件</span></span><br><span class="line"> <span class="hljs-comment"># @return &#123;String&#125; 返回txt文件的内容</span></span><br><span class="line"> <span class="hljs-comment">#</span></span><br><span class="line">const txtPreview = (file) =&gt; &#123;</span><br><span class="line">    <span class="hljs-built_in">return</span> new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        checkEncoding(file).<span class="hljs-keyword">then</span>(encoding =&gt; &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> reader = new FileReader()</span><br><span class="line">            reader.readAsText(file, encoding)  <span class="hljs-comment"># 通过txt文件编码格式获取文件内容（字符串形式）</span></span><br><span class="line">            reader.onloadend = <span class="hljs-keyword">function</span> (e) &#123;</span><br><span class="line">                resolve(reader.result)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">export</span> default txtPreview</span><br></pre></td></tr></table></figure>
+<h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">        &lt;input <span class="hljs-built_in">type</span>=<span class="hljs-string">"file"</span> id=<span class="hljs-string">"files"</span> name=<span class="hljs-string">"files"</span>/&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;div id=<span class="hljs-string">"resText"</span> style=<span class="hljs-string">"word-wrap: break-word; white-space: divpre-wrap;"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        import txtPreview from <span class="hljs-string">'./txtPreview.js'</span></span><br><span class="line">        document.getElementById(<span class="hljs-string">'files'</span>).addEventListener(<span class="hljs-string">'change'</span>, handleFileSelect, <span class="hljs-literal">false</span>);</span><br><span class="line">        <span class="hljs-keyword">function</span> handleFileSelect(e) &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> file = e.target.files[0]</span><br><span class="line">            txtPreview(file).<span class="hljs-keyword">then</span>(res =&gt; &#123;</span><br><span class="line">                document.getElementById(<span class="hljs-string">"resText"</span>).innerHTML = res;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a><a href="/example/txtPreview.html">Demo</a></h3><hr>
+<p><strong>本文参考文章：</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="noopener">FileReader - Web API</a></li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/2019/04/18/net-ERR-CACHE-WRITE-FAILURE/" class="image is-7by1">
             <img class="thumbnail" src="https://images.unsplash.com/photo-1495758229779-f55e454e6c90?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="net::ERR_CACHE_WRITE_FAILURE">
         </a>
@@ -300,7 +354,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        3
                     </p>
                 </div>
             </div>
@@ -320,7 +374,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        9
                     </p>
                 </div>
             </div>
@@ -411,7 +465,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ERR-CACHE/" style="font-size: 10px;">ERR_CACHE</a> <a href="/tags/WRITE-FAILURE/" style="font-size: 10px;">WRITE_FAILURE</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/prefetch/" style="font-size: 10px;">prefetch</a>
+        <a href="/tags/ERR-CACHE/" style="font-size: 10px;">ERR_CACHE</a> <a href="/tags/FileReader/" style="font-size: 10px;">FileReader</a> <a href="/tags/WRITE-FAILURE/" style="font-size: 10px;">WRITE_FAILURE</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jschardet/" style="font-size: 10px;">jschardet</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/prefetch/" style="font-size: 10px;">prefetch</a> <a href="/tags/txt/" style="font-size: 10px;">txt</a>
     </div>
 </div>
 
@@ -425,6 +479,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1526737511523-ba685f246e8c?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="JavaScript上传TXT文件并预览">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-13T04:12:59.000Z">2019-05-13</time></div>
+                    <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="has-link-black-ter is-size-6">JavaScript上传TXT文件并预览</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -477,6 +550,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
                     <span class="level-item">四月 2019</span>
@@ -508,6 +592,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/FileReader/">
+                        <span class="tag">FileReader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/WRITE-FAILURE/">
                         <span class="tag">WRITE_FAILURE</span>
                         <span class="tag is-grey">1</span>
@@ -515,8 +606,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/file/">
+                        <span class="tag">file</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/git/">
                         <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jschardet/">
+                        <span class="tag">jschardet</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -531,6 +636,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/prefetch/">
                         <span class="tag">prefetch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/txt/">
+                        <span class="tag">txt</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -560,6 +672,25 @@
         
         <article class="media">
             
+            <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://images.unsplash.com/photo-1526737511523-ba685f246e8c?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="JavaScript上传TXT文件并预览">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-13T04:12:59.000Z">2019-05-13</time></div>
+                    <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="has-link-black-ter is-size-6">JavaScript上传TXT文件并预览</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/04/18/net-ERR-CACHE-WRITE-FAILURE/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://images.unsplash.com/photo-1495758229779-f55e454e6c90?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="net::ERR_CACHE_WRITE_FAILURE">
@@ -609,6 +740,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/04/">
                 <span class="level-start">
                     <span class="level-item">四月 2019</span>
@@ -640,6 +782,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/FileReader/">
+                        <span class="tag">FileReader</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/WRITE-FAILURE/">
                         <span class="tag">WRITE_FAILURE</span>
                         <span class="tag is-grey">1</span>
@@ -647,8 +796,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/file/">
+                        <span class="tag">file</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/git/">
                         <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jschardet/">
+                        <span class="tag">jschardet</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -663,6 +826,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/prefetch/">
                         <span class="tag">prefetch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/txt/">
+                        <span class="tag">txt</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

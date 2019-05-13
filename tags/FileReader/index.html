@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: WRITE_FAILURE - Lmango - 个人博客</title>
+<title>标签: FileReader - Lmango - 个人博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="lmango">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lmango - 个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/WRITE-FAILURE/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/FileReader/index.html">
 <meta property="og:site_name" content="Lmango - 个人博客">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
@@ -136,7 +136,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">WRITE_FAILURE</a></li>
+            <li class="is-active"><a href="#" aria-current="page">FileReader</a></li>
         </ul>
         </nav>
     </div>
@@ -145,28 +145,28 @@
     <div class="card">
     
     <div class="card-image">
-        <a href="/2019/04/18/net-ERR-CACHE-WRITE-FAILURE/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1495758229779-f55e454e6c90?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="net::ERR_CACHE_WRITE_FAILURE">
+        <a href="/2019/05/13/JavaScript上传TXT文件并预览/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.unsplash.com/photo-1526737511523-ba685f246e8c?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="JavaScript上传TXT文件并预览">
         </a>
     </div>
     
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/18/net-ERR-CACHE-WRITE-FAILURE/">net::ERR_CACHE_WRITE_FAILURE</a>
+                <a class="has-link-black-ter" href="/2019/05/13/JavaScript上传TXT文件并预览/">JavaScript上传TXT文件并预览</a>
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <i class="far fa-calendar-alt" style="padding-right: 5px;"></i>
-                <time class="level-item has-text-grey" datetime="2019-04-18T03:56:11.000Z">2019-04-18</time>
+                <time class="level-item has-text-grey" datetime="2019-05-13T04:12:59.000Z">2019-05-13</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 452 个字)
+                    2 分钟 读完 (大约 266 个字)
                 </span>
                 
                 
@@ -174,19 +174,12 @@
         </div>
         
         <div class="content">
-            <p>公司的一个url2pdf的node服务中，使用到了<a href>puppeteer</a>，当使用<a href>puppeteer</a>创建浏览器并<a href>page.goto</a>到要生成的HTML页面时，<a href>page.on(‘requestfailed’)</a>会捕捉到异常错误：<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">page.on(<span class="hljs-string">'requestfailed'</span>, (request) =&gt; &#123;</span><br><span class="line">    logger.warn(request.failure().errorText);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="hljs-comment"># logger打印：</span></span><br><span class="line">net::ERR_CACHE_WRITE_FAILURE  <span class="hljs-comment"># 缓存写入失败</span></span><br></pre></td></tr></table></figure></p>
-<p>此时<a href>page.goto</a>只会得到一个空白的没任何内容HTML页面，而导致此错误的原因是<a href>Link Prefetch</a></p>
-<h2 id="Link-Prefetch-链接预取"><a href="#Link-Prefetch-链接预取" class="headerlink" title="Link Prefetch(链接预取)"></a>Link Prefetch(链接预取)</h2><hr>
-<h3 id="·-什么是链接预取"><a href="#·-什么是链接预取" class="headerlink" title="· 什么是链接预取"></a>· 什么是链接预取</h3><p>链接预取是一种浏览器机制，其利用浏览器空闲时间来下载或预取用户在不久的将来可能访问的文档。网页向浏览器提供一组预取提示，并在浏览器完成当前页面的加载后开始静默地拉取指定的文档并将其存储在缓存中。当用户访问其中一个预取文档时，便可以快速的从浏览器缓存中得到。</p>
-<h3 id="·-预取是否使用HTTPS？"><a href="#·-预取是否使用HTTPS？" class="headerlink" title="· 预取是否使用HTTPS？"></a>· 预取是否使用HTTPS？</h3><p>从 Gecko 1.9.1 (Firefox 3.5) 开始，支持获取 https 内容</p>
-<h3 id="·-什么是预取提示？"><a href="#·-什么是预取提示？" class="headerlink" title="· 什么是预取提示？"></a>· 什么是预取提示？</h3><p>浏览器会查找关系类型(rel)为 next 或 prefetch 的 HTML<link>  或 HTTP Link: header。下面是一个使用 link 标签的例子：<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="hljs-string">"prefetch"</span> href=<span class="hljs-string">"/images/big.jpeg"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p>同样效果的使用 HTTP Link: header 的例子：<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Link: &lt;/images/big.jpeg&gt;; rel=prefetch</span><br></pre></td></tr></table></figure></p>
-<p>Link: header 也可以通过使用 HTML meta 标签定义在 HTML 文档中：<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="hljs-string">"Link"</span> content=<span class="hljs-string">"&lt;/images/big.jpeg&gt;; rel=prefetch"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：</strong> 不要预取大量的资源，否则您的浏览器就会报<a href>net::ERR_CACHE_WRITE_FAILURE</a>错误，所以在开发的过程中，不要大量的预取资源</p>
+            <h3 id="js实现txt文件预览-支持各种编码格式"><a href="#js实现txt文件预览-支持各种编码格式" class="headerlink" title="js实现txt文件预览(支持各种编码格式)"></a>js实现txt文件预览(支持各种编码格式)</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># txtPreview.js</span></span><br><span class="line"><span class="hljs-comment"># 引入jschardet获取文件编码</span></span><br><span class="line">import jschardet from <span class="hljs-string">'jschardet'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">##</span></span><br><span class="line"> <span class="hljs-comment"># 获取文件的encoding码</span></span><br><span class="line"> <span class="hljs-comment"># @param &#123;Object File&#125; file input上传的txt文件</span></span><br><span class="line"> <span class="hljs-comment"># @return &#123;String&#125; encoding 返回文件的编码格式</span></span><br><span class="line"> <span class="hljs-comment">#</span></span><br><span class="line"><span class="hljs-keyword">function</span> checkEncoding (file) &#123;</span><br><span class="line">    <span class="hljs-built_in">return</span> new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        <span class="hljs-built_in">let</span> reader = new FileReader()</span><br><span class="line">        reader.readAsDataURL(file)  <span class="hljs-comment"># 获取txt文件的base64码</span></span><br><span class="line">        reader.onload = <span class="hljs-keyword">function</span> (e) &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> base64Str = reader.result</span><br><span class="line">            <span class="hljs-built_in">let</span> str = atob(base64Str.split(<span class="hljs-string">';base64,'</span>)[1])</span><br><span class="line">            <span class="hljs-built_in">let</span> encoding = jschardet.detect(str)  <span class="hljs-comment"># 通过jschardet获取txt文件对应的编码格式</span></span><br><span class="line">            encoding = encoding.encoding</span><br><span class="line">            <span class="hljs-keyword">if</span> (encoding === <span class="hljs-string">'window-1252'</span>) &#123;</span><br><span class="line">                encoding = <span class="hljs-string">'ANSI'</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(encoding)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">##</span></span><br><span class="line"> <span class="hljs-comment"># 返回file内容</span></span><br><span class="line"> <span class="hljs-comment"># @param &#123;Object File&#125; file input上传的txt文件</span></span><br><span class="line"> <span class="hljs-comment"># @return &#123;String&#125; 返回txt文件的内容</span></span><br><span class="line"> <span class="hljs-comment">#</span></span><br><span class="line">const txtPreview = (file) =&gt; &#123;</span><br><span class="line">    <span class="hljs-built_in">return</span> new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        checkEncoding(file).<span class="hljs-keyword">then</span>(encoding =&gt; &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> reader = new FileReader()</span><br><span class="line">            reader.readAsText(file, encoding)  <span class="hljs-comment"># 通过txt文件编码格式获取文件内容（字符串形式）</span></span><br><span class="line">            reader.onloadend = <span class="hljs-keyword">function</span> (e) &#123;</span><br><span class="line">                resolve(reader.result)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">export</span> default txtPreview</span><br></pre></td></tr></table></figure>
+<h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">        &lt;input <span class="hljs-built_in">type</span>=<span class="hljs-string">"file"</span> id=<span class="hljs-string">"files"</span> name=<span class="hljs-string">"files"</span>/&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;div id=<span class="hljs-string">"resText"</span> style=<span class="hljs-string">"word-wrap: break-word; white-space: divpre-wrap;"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        import txtPreview from <span class="hljs-string">'./txtPreview.js'</span></span><br><span class="line">        document.getElementById(<span class="hljs-string">'files'</span>).addEventListener(<span class="hljs-string">'change'</span>, handleFileSelect, <span class="hljs-literal">false</span>);</span><br><span class="line">        <span class="hljs-keyword">function</span> handleFileSelect(e) &#123;</span><br><span class="line">            <span class="hljs-built_in">let</span> file = e.target.files[0]</span><br><span class="line">            txtPreview(file).<span class="hljs-keyword">then</span>(res =&gt; &#123;</span><br><span class="line">                document.getElementById(<span class="hljs-string">"resText"</span>).innerHTML = res;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a><a href="/example/txtPreview.html">Demo</a></h3><hr>
 <p><strong>本文参考文章：</strong></p>
 <ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="noopener">Link prefetching FAQ</a></li>
-<li><a href="https://medium.com/@soorajchandran/speeding-up-your-website-using-prefetching-techniques-8077058b7418" target="_blank" rel="noopener">Speeding up your website using Prefetching techniques</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="noopener">FileReader - Web API</a></li>
 </ul>
 
         </div>
