@@ -136,56 +136,6 @@
     <div class="card">
     
     <div class="card-image">
-        <a href="/2019/08/20/前端文件开启Gzip加速/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="vue-cli3前端文件开启Gzip加速">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/20/前端文件开启Gzip加速/">vue-cli3前端文件开启Gzip加速</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <i class="far fa-calendar-alt" style="padding-right: 5px;"></i>
-                <time class="level-item has-text-grey" datetime="2019-08-20T07:14:24.000Z">2019-08-20</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 115 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <h3 id="下载依赖的插件"><a href="#下载依赖的插件" class="headerlink" title="下载依赖的插件"></a>下载依赖的插件</h3><p>npm install compression-webpack-plugin -D</p>
-<h3 id="配置vue-config-js"><a href="#配置vue-config-js" class="headerlink" title="配置vue.config.js"></a>配置vue.config.js</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const CompressionPlugin = require(<span class="hljs-string">'compression-webpack-plugin'</span>)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    configureWebpack: (config) =&gt; &#123;</span><br><span class="line">        <span class="hljs-comment"># 非development环境下进行压缩</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'development'</span>) &#123;</span><br><span class="line">            <span class="hljs-comment"># GZIP压缩</span></span><br><span class="line">            <span class="hljs-built_in">return</span> &#123;</span><br><span class="line">                plugins: [</span><br><span class="line">                    new CompressionPlugin(&#123;</span><br><span class="line">                        <span class="hljs-built_in">test</span>: /\.(js|css)(\?.*)?$/i,  <span class="hljs-comment"># 需要压缩的文件正则</span></span><br><span class="line">                        threshold: 50 * 1024,  <span class="hljs-comment"># 文件大小大于这个值时启用压缩</span></span><br><span class="line">                        deleteOriginalAssets: <span class="hljs-literal">false</span>  <span class="hljs-comment"># 压缩后是否删除原文件</span></span><br><span class="line">                    &#125;)</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h3><p>开启gzip<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip on;</span><br><span class="line">gzip_types text/plain application/javascript text/css application/xml text/javascript application/x-javascript;</span><br></pre></td></tr></table></figure></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
         <a href="/2019/08/02/git常用命令/" class="image is-7by1">
             <img class="thumbnail" src="https://images.unsplash.com/photo-1546019116-2f6179dc3965?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjQyOTY1fQ" alt="git常用命令">
         </a>
@@ -357,7 +307,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        13
                     </p>
                 </div>
             </div>
@@ -561,7 +511,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ERR-CACHE/" style="font-size: 10px;">ERR_CACHE</a> <a href="/tags/FileReader/" style="font-size: 10px;">FileReader</a> <a href="/tags/WRITE-FAILURE/" style="font-size: 10px;">WRITE_FAILURE</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/jschardet/" style="font-size: 10px;">jschardet</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/prefetch/" style="font-size: 10px;">prefetch</a> <a href="/tags/txt/" style="font-size: 10px;">txt</a>
+        <a href="/tags/ERR-CACHE/" style="font-size: 10px;">ERR_CACHE</a> <a href="/tags/FileReader/" style="font-size: 10px;">FileReader</a> <a href="/tags/WRITE-FAILURE/" style="font-size: 10px;">WRITE_FAILURE</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/gzip/" style="font-size: 10px;">gzip</a> <a href="/tags/jschardet/" style="font-size: 10px;">jschardet</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/prefetch/" style="font-size: 10px;">prefetch</a> <a href="/tags/txt/" style="font-size: 10px;">txt</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-cli3/" style="font-size: 10px;">vue-cli3</a>
     </div>
 </div>
 
